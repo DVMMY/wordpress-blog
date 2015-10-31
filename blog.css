@@ -92,6 +92,10 @@ header {
 	border: none;
 }
 
+.page-header {
+	margin: 0;
+}
+
 .jumbotron h1 {
 	font-size: 80px;
 	font-weight: 800;
@@ -293,12 +297,20 @@ footer {
 
 	/* COLLAPSED NAVBAR */
 
+	nav ol, nav ul {
+		padding-left: 0;
+	}
+
 	.navbar-default {
 		border-radius: 0;
 	}
 
 	.navbar {
 		background: #F8F8F8;
+	}
+
+	.navbar-header {
+		border-bottom: 1px solid #E7E7E7;
 	}
 
 	.navbar-default .navbar-toggle .icon-bar {
@@ -311,17 +323,28 @@ footer {
 
 	.navbar-collapse {
 		float: left;
+		width: 100%;
+		border: none;
 	}
 
-	.navbar-collapse ul li {
-		margin-left: 0;
+	.navbar-collapse ul {
+		margin: 7.5px -15px;
+	}
+
+	.navbar-collapse ul > li {
+		position: relative;
+		display: block;
 		float: none;
 		padding: 0;
-		margin: 20px 0;
+		margin: 0;
 	}
 
-	.navbar-collapse ul li a {
-		padding: 10px 200px 10px 0;
+	.navbar-collapse ul > li > a {
+		position: relative;
+		display: block;
+		line-height: 20px;
+		padding: 10px 15px;
+		margin: 0;
 	}
 
 	.navbar-collapse ul > li > a, .navbar-default .navbar-brand {
