@@ -54,6 +54,11 @@ add_action('widgets_init', 'widgetInit');
 // Customize Appearance Options
 function theme_customize_register( $wp_customize ) {
 
+	$wp_customize->add_setting('header_image', array(
+		'default' => 'background.jpg',
+		'transport' => 'refresh',
+	));
+
 	$wp_customize->add_setting('title_color', array(
 		'default' => '#fff',
 		'transport' => 'refresh',
@@ -74,10 +79,21 @@ function theme_customize_register( $wp_customize ) {
 		'transport' => 'refresh',
 	));
 
+	$wp_customize->add_section('header_change', array(
+		'title' => __('Header Image', 'Dammy Blog'),
+		'priority' => 20,
+	));
+
 	$wp_customize->add_section('standard_colors', array(
 		'title' => __('Standard Colors', 'Dammy Blog'),
 		'priority' => 30,
 	));
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_image_control', array(
+		'label' => __('Header Image', 'Dammy Blog'),
+		'section' => 'header_change',
+		'settings' => 'header_image',
+	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_color_control', array(
 		'label' => __('Title Color', 'Dammy Blog'),
@@ -110,6 +126,10 @@ add_action('customize_register', 'theme_customize_register');
 // Output Customize CSS
 function theme_customize_css() { ?>
 	<style type="text/css">
+		header {
+			background-image: url(<?php echo get_theme_mod('header_image'); ?>);
+  		}
+
 		.header-text {
 			color: <?php echo get_theme_mod('title_color'); ?>;
 		}

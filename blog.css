@@ -35,7 +35,7 @@ a:hover, a:focus {
 /* HEADER */
 
 header {
-	background-image: url(http://hdw.datawallpaper.com/nature/dark-shades-of-blue-hd-wallpaper-332258.jpg);
+	background-image: url(background.jpg);
   	background-size: cover;
   	background-position: center;
   	color: #fff;
@@ -229,7 +229,7 @@ footer {
 	padding-bottom: 60px;
 }
 
-/* FOOTER WIDGETS */
+/* FOOTER WIDGETS / CONTACT FORM 7 */
 .footer-widgets {
 	text-align: left;
 	list-style-type: none;
@@ -245,12 +245,13 @@ footer {
 }
 
 .footer-widget-area button, .footer-widget-area input,
-.footer-widget-area select, .footer-widget-area textarea {
+.footer-widget-area select, .footer-widget-area textarea, 
+.wpcf7-form-control {
 	padding: 2px 5px;
 	border: 1px solid #C4C4C4;
 }
 
-.footer-widget-area #s {
+.footer-widget-area #s, .wpcf7-text, .wpcf7-textarea {
 	-webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -258,7 +259,8 @@ footer {
     margin: 5px;
 }
 
-.footer-widget-area #s:focus {
+.footer-widget-area #s:focus, 
+.wpcf7-text:focus, .wpcf7-textarea:focus {
 	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
 }
