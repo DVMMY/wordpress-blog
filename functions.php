@@ -1,7 +1,24 @@
 <?php 
 
 function wordpress_resources() {
+	// Latest compiled and minified CSS
+	wp_enqueue_style("bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+	// Optional theme 
+	wp_enqueue_style("bootstrap-theme", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css");
+	
+	// Google Fonts
+	wp_enqueue_style("font", "https://fonts.googleapis.com/css?family=Open+Sans:400,800");
+	wp_enqueue_style("font-2", "https://fonts.googleapis.com/css?family=Lora:400,700");
+	
+	// Stylesheets
 	wp_enqueue_style("style", get_stylesheet_uri());
+	wp_enqueue_style("blog", get_template_directory_uri() . '/blog.css',false,'1.0','all');
+
+	// Online version of jQuery
+	wp_enqueue_script("jquery", "http://code.jquery.com/jquery.js");
+
+	// Latest compiled and minified JavaScript
+	wp_enqueue_script("javascript", "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js");
 }
 
 add_action("wp_enqueue_scripts", "wordpress_resources");
